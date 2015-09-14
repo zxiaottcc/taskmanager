@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  project_id: 
+  created_by_user: 1
+  assigned_to_user: 1
+  estimated_hours: 1
+  creation_date: 2015-09-12
+  completion_date: 2015-09-12
+
+two:
+  name: MyString
+  project_id: 
+  created_by_user: 1
+  assigned_to_user: 1
+  estimated_hours: 1
+  creation_date: 2015-09-12
+  completion_date: 2015-09-12

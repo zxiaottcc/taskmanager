@@ -1,0 +1,45 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :project_id %><br>
+    <%= f.collection_select(:project_id, Project.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :created_by_user %><br>
+    <%= User.find(session[:user_id]).username %>
+  </div>
+  <div class="field">
+    <%= f.label :assigned_to_user %><br>
+    <%= f.collection_select(:assigned_to_user, @users, :id, :username) %>
+  </div>
+  <div class="field">
+    <%= f.label :estimated_hours %><br>
+    <%= f.number_field :estimated_hours %>
+  </div>
+  <div class="field">
+    <%= f.label :creation_date %><br>
+    <%= f.date_select :creation_date %>
+  </div>
+  <div class="field">
+    <%= f.label :completion_date %><br>
+    <%= f.date_select :completion_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Taskmanager</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<table class="pagetable">
+	<tr>
+		<td class="menu"><%= render('layouts/menu') %></td>
+		<td>
+			<table class="center_layout">
+				<tr>
+					<td class="top_bar">
+						<%= render("partials/top_bar") %>
+					</td>
+				</tr>
+				<tr>
+					<td class="mainContent"><%= yield %></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

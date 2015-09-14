@@ -1,0 +1,43 @@
+<div>
+	Users
+	<% User.all.each_with_index do |u, i| %>
+	<div class="indent1"><%= link_to u.username, user_login_path(u.id) %></div>
+	<% end %>
+<div>
+	Roles
+	<% Role.all.each_with_index do |u, i| %>
+	<div class="indent1"><%= link_to u.name, u %></div>
+	<% end %>
+</div>
+<div>
+	Projects
+	<% Project.all.each_with_index do |u, i| %>
+	<div class="indent1"><%= link_to u.name, u%></div>
+	<% end %>
+</div>
+<div>
+	<%= link_to "Add Task", new_task_path %>
+</div>
+
+
+<h2><%= User.find(session[:user_id]).username %>'s Portal</h2>
+<div>
+	My Tasks
+	<div class="indent1">
+		<table>
+			<thead class="simple_header">
+				<tr>
+					<td>Task</td>
+					<td>Due In</td>
+				</tr>
+			</thead>
+	<% Task.where({assigned_to_user: session[:user_id]}).each_with_index do |u, i| %>
+			<tr>
+				<td><%= u.name %></td>
+				<td><%= (u.due_date - Date.today).to_i %> days </td>
+			</tr>
+	<% end %>
+		</table>
+	</div>
+	<%= link_to "My Calendar", calendar_index_path %>
+</div>

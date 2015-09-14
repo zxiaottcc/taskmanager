@@ -1,0 +1,22 @@
+// Place all the styles related to the calendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cal_table td {
+	width: 100px;
+	height: 80px;
+	border-collapse: collapse;
+	border: solid 1px white;
+}
+
+.cal_table {
+	background-color: #dddddd;
+}
+
+.today {
+	background-color: white;
+}
+
+.not_this_month {
+	background-color: white;
+}

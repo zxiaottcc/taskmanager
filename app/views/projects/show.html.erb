@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Project</h2>
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<div class="box">
+	<h2>Members</h2>
+<% @project_users.each_with_index do |u, i| %>
+	<%=Role.find(u.role_id).name %>: <%= User.find(u.user_id).username %><br/>
+<% end %>
+</div>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
