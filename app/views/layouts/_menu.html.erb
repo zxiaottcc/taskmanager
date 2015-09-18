@@ -19,7 +19,7 @@
 	<%= link_to "Add Task", new_task_path %>
 </div>
 
-
+<% if session[:user_id] %>
 <h2><%= User.find(session[:user_id]).username %>'s Portal</h2>
 <div>
 	My Tasks
@@ -41,3 +41,4 @@
 	</div>
 	<%= link_to "My Calendar", calendar_index_path %>
 </div>
+<% end %>

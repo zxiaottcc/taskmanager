@@ -1,2 +1,7 @@
-User: <%= User.find(session[:user_id]).username %> &nbsp;|&nbsp;
+<% if session[:user_id] %>
+User: <%= User.find(session[:user_id]).username %> &nbsp;|&
+nbsp;
+<% end %>
+<% if session[:project_id] %>
 Project: <%= Project.find(session[:project_id]).name %>
+<% end %>
